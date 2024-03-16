@@ -120,7 +120,7 @@ function App() {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ username: userName, points }),
+          body: JSON.stringify({ username: userName, points}),
         });
       } catch (error) {
         console.error("Error updating user points:", error);
