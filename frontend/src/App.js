@@ -6,6 +6,8 @@ import Toast from "./components/Toast";
 import NameForm from "./components/NameForm";
 import LeaderBoard from "./components/LeaderBoard";
 
+const baseURL = `https://emittr-backend-mypi.onrender.com/`;
+
 function App() {
   const [points, setPoints] = useState(0);
   const [updatedPoints, setUpdatedPoints] = useState(0);
@@ -17,8 +19,7 @@ function App() {
   const [flippedArray, setFlippedArray] = useState([]);
   const [allCardsDrawn, setAllCardsDrawn] = useState(false);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
-
-  const baseURL = `https://emittr-backend-mypi.onrender.com/`
+ 
 
   useEffect(() => {
     const fetchUserPoints = async () => {
