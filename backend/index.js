@@ -44,7 +44,7 @@ app.get('/api/user/points', async (req, res) => {
       if (!user) {
         user = new UserModel({ username, points });
       } else {
-        user.points += points;
+        user.points += parseInt(points);
       }
       await user.save();
       res.json(user);
