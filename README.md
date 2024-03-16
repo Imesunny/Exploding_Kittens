@@ -3,17 +3,17 @@ CSS ReactJS Redux Nodejs Express MongoDB
 
 Welcome to the Exploding Kittens card game! This is an online single-player card game where you try to draw cards from a deck without exploding kittens blowing up in your face. Let's dive into how the game works and how you can access it locally.
 
-## How the Game Works
-# Rules:
-- Types of Cards:
+# How the Game Works
+## Rules:
+## Types of Cards:
 
-😼 Cat Card: Harmless card, just a cute cat.
+- 😼 Cat Card: Harmless card, just a cute cat.
 
-🙅‍♂️ Defuse Card: Used to defuse an exploding kitten.
+- 🙅‍♂️ Defuse Card: Used to defuse an exploding kitten.
 
-🔀 Shuffle Card: Shuffles the deck and resets the game.
+- 🔀 Shuffle Card: Shuffles the deck and resets the game.
 
-💣 Exploding Kitten Card: Instant game over if drawn.
+- 💣 Exploding Kitten Card: Instant game over if drawn.
 
 ![cat1](https://github.com/Imesunny/Exploding_Kittens/blob/main/frontend/src/assets/cat1.png?raw=true) ![cat2](https://github.com/Imesunny/Exploding_Kittens/blob/main/frontend/src/assets/cat2.png?raw=true) ![cat3](https://github.com/Imesunny/Exploding_Kittens/blob/main/frontend/src/assets/cat3.png?raw=true) ![cat4](https://github.com/Imesunny/Exploding_Kittens/blob/main/frontend/src/assets/cat4.png?raw=true) 
  
