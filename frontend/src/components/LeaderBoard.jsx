@@ -9,7 +9,7 @@ function LeaderBoard({ userName, points }) {
   }, []);
 
   const fetchLeaderboard = () => {
-    fetch('http://localhost:8080/api/leaderboard')
+    fetch('https://emittr-backend-mypi.onrender.com/api/leaderboard')
       .then(response => response.json())
       .then(data => {
         setLeaderBoardData(data);

@@ -18,11 +18,13 @@ function App() {
   const [allCardsDrawn, setAllCardsDrawn] = useState(false);
   const [showLeaderboard, setShowLeaderboard] = useState(false);
 
+  const baseURL = `https://emittr-backend-mypi.onrender.com/`
+
   useEffect(() => {
     const fetchUserPoints = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/user/points?username=${userName}`
+          `${baseURL}api/user/points?username=${userName}`
         );
         console.log("Fetching user points for:", userName);
 
@@ -112,7 +114,7 @@ function App() {
   useEffect(() => {
     const updateUserPoints = async () => {
       try {
-        await fetch("http://localhost:8080/api/user/points", {
+        await fetch("${baseURL}api/user/points", {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -132,7 +134,7 @@ function App() {
   useEffect(() => {
     const updateUserPoints = async () => {
       try {
-        await fetch("http://localhost:8080/api/user/points", {
+        await fetch("${baseURL}api/user/points", {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -141,7 +143,7 @@ function App() {
         });
 
         const response = await fetch(
-          `http://localhost:8080/api/user/points?username=${userName}`
+          `${baseURL}api/user/points?username=${userName}`
         );
         const data = await response.json();
         setUpdatedPoints(data);
