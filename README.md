@@ -1,5 +1,4 @@
 ## Exploding Kittens Card Game 😼
-CSS ReactJS Redux Nodejs Express MongoDB 
 
 Welcome to the Exploding Kittens card game! This is an online single-player card game where you try to draw cards from a deck without exploding kittens blowing up in your face. Let's dive into how the game works and how you can access it locally.
 
@@ -37,12 +36,11 @@ Welcome to the Exploding Kittens card game! This is an online single-player card
 - The backend will run on port 8080;
 
 ## Tech Stack Used
-- ReactJs
-- Redux
-- Node.js
-- Express
-- MongoDB
-- CSS
+| Frontend        | Backend        | Database |
+|-----------------|----------------|----------|
+| CSS             | Node.js        | MongoDB  |
+| ReactJS         | Express        |          |
+| Redux           |                |          |
 
 ## Contributions and License
 This project is open for contributions. Feel free to fork the repository, make changes, and submit a pull request. There is no license specified for this project. Enjoy playing and happy coding!
