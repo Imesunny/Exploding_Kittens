@@ -164,3 +164,21 @@ body {
     width: 200px; 
   }
 }
+
+
+.button-container {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+}
+
+.show-leaderboard-button {
+  background-color: #10B881;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+}
