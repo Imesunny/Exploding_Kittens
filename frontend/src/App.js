@@ -114,7 +114,7 @@ function App() {
   useEffect(() => {
     const updateUserPoints = async () => {
       try {
-        await fetch("${baseURL}api/user/points", {
+        await fetch(`${baseURL}api/user/points`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -134,16 +134,16 @@ function App() {
   useEffect(() => {
     const updateUserPoints = async () => {
       try {
-        await fetch("${baseURL}api/user/points", {
+        await fetch(`https://emittr-backend-mypi.onrender.com/api/user/points`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ username: userName }),
+          body: JSON.stringify({ username: userName , points: points }),
         });
-
+  
         const response = await fetch(
-          `${baseURL}api/user/points?username=${userName}`
+          `https://emittr-backend-mypi.onrender.com/api/user/points?username=${userName}`
         );
         const data = await response.json();
         setUpdatedPoints(data);
@@ -151,11 +151,12 @@ function App() {
         console.error("Error updating user points:", error);
       }
     };
-
+  
     if (allCardsDrawn) {
       updateUserPoints();
     }
-  }, [allCardsDrawn, userName]);
+  }, [allCardsDrawn, userName, points]);
+  
 
   const toggleLeaderboard = () => {
     setShowLeaderboard(!showLeaderboard);
@@ -190,6 +191,7 @@ function App() {
           <NameForm onNameSubmit={handleNameSubmit} />
         </>
       )}
+      {allCardsDrawn && <LeaderBoard points={points} userName={userName}/> }
       {showLeaderboard ? <LeaderBoard points={points} userName={userName}/> : null}
     </div>
   );
