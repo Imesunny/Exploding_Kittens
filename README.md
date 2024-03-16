@@ -15,7 +15,7 @@ Welcome to the Exploding Kittens card game! This is an online single-player card
 
 - 💣 Exploding Kitten Card: Instant game over if drawn.
 
-![cat1](https://github.com/Imesunny/Exploding_Kittens/blob/main/frontend/src/assets/cat1.png?raw=true) ![cat2](https://github.com/Imesunny/Exploding_Kittens/blob/main/frontend/src/assets/cat2.png?raw=true) ![cat3](https://github.com/Imesunny/Exploding_Kittens/blob/main/frontend/src/assets/cat3.png?raw=true) ![cat4](https://github.com/Imesunny/Exploding_Kittens/blob/main/frontend/src/assets/cat4.png?raw=true) 
+![cat1](https://github.com/Imesunny/Exploding_Kittens/blob/main/Screenshots/cats.jpeg?raw=true)
  
  ## Gameplay
 - Clicking on the deck reveals a card.
@@ -46,3 +46,21 @@ Welcome to the Exploding Kittens card game! This is an online single-player card
 
 ## Contributions and License
 This project is open for contributions. Feel free to fork the repository, make changes, and submit a pull request. There is no license specified for this project. Enjoy playing and happy coding!
+
+## Snapshots from the Application
+
+![Front](https://github.com/Imesunny/Exploding_Kittens/blob/main/Screenshots/Front.jpeg?raw=true)
+
+![GameUI](https://github.com/Imesunny/Exploding_Kittens/blob/main/Screenshots/GameUI.jpeg?raw=true)
+
+![GameUI2](https://github.com/Imesunny/Exploding_Kittens/blob/main/Screenshots/GameUI2.jpeg?raw=true)
+
+![GameUI3](https://github.com/Imesunny/Exploding_Kittens/blob/main/Screenshots/GameUI3.jpeg?raw=true)
+
+![LeaderBoard](https://github.com/Imesunny/Exploding_Kittens/blob/main/Screenshots/LeaderBoard.jpeg?raw=true)
+
+
+
+
+ 
+ 
