@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Navbar from './components/Navbar';
 import CardBlock from './components/CardBlock';
-import { Toast } from './components/Toast';
-import { NameForm } from './components/NameForm';
-import { LeaderBoard } from './components/LeaderBoard';
+import Toast from './components/Toast';
+import NameForm from './components/NameForm';
+import LeaderBoard from './components/LeaderBoard';
 
 function App() {
   const [points, setPoints] = useState(0);
@@ -20,7 +20,7 @@ function App() {
   useEffect(() => {
     const fetchUserPoints = async () => {
       try {
-        const response = await fetch(`http://localhost:8080/api/user/points?name=${userName}`);
+        const response = await fetch(`http://localhost:8080/api/user/points?username=${userName}`);
         console.log('Fetching user points for:', userName);
         
         if (!response.ok) {
@@ -117,12 +117,13 @@ function App() {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ name: userName })
+          body: JSON.stringify({ username: userName, points: 1 })  //here points 
         });
       } catch (error) {
         console.error('Error updating user points:', error);
       }
     };
+    
 
     if (allCardsDrawn) {
       updateUserPoints();
@@ -137,11 +138,11 @@ function App() {
           headers: {
             'Content-Type': 'application/json'
           },
-          body: JSON.stringify({ name: userName })
+          body: JSON.stringify({ username: userName })
         });
   
         
-        const response = await fetch(`http://localhost:8080/api/user/points?name=${userName}`);
+        const response = await fetch(`http://localhost:8080/api/user/points?username=${userName}`);
         const data = await response.json();
         setUpdatedPoints(data);
       } catch (error) {
