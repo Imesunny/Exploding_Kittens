@@ -9,7 +9,7 @@ function NameForm({ onNameSubmit }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      await axios.post('http://localhost:3000/api/user', { username: name });
+      await axios.post('https://backend-emittr2-2.onrender.com/api/user', { username: name });
       onNameSubmit(name); 
       setErrorMessage('');
     } catch (error) {

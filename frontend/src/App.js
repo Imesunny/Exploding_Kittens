@@ -6,6 +6,8 @@ import Toast from "./components/Toast";
 import NameForm from "./components/NameForm";
 import LeaderBoard from "./components/LeaderBoard";
 
+const baseURL = "https://backend-emittr2-2.onrender.com/";
+
 function App() {
   const [points, setPoints] = useState(0);
   const [updatedPoints, setUpdatedPoints] = useState(0);
@@ -21,7 +23,7 @@ function App() {
     const fetchUserPoints = async () => {
       try {
         const response = await fetch(
-          `http://localhost:8080/api/user/points?username=${userName}`
+          `${baseURL}api/user/points?username=${userName}`
         );
         console.log("Fetching user points for:", userName);
 
@@ -111,14 +113,13 @@ function App() {
   useEffect(() => {
     const updateUserPoints = async () => {
       try {
-        // Increment points by 1 when the user wins
         const updatedPoints = points + 1;
-        await fetch(`http://localhost:8080/api/user/points`, {
+        await fetch(`${baseURL}api/user/points`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ username: userName, points: updatedPoints }), // Pass updated points value
+          body: JSON.stringify({ username: userName, points: updatedPoints }),
         });
       } catch (error) {
         console.error("Error updating user points:", error);
@@ -133,12 +134,12 @@ function App() {
   useEffect(() => {
     const updateUserPoints = async () => {
       try {
-        await fetch(`http://localhost:8080/api/user/points`, {
+        await fetch(`${baseURL}api/user/points`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ username: userName, points: 1 }), // Increment points by 1
+          body: JSON.stringify({ username: userName, points: 1 }), 
         });
       } catch (error) {
         console.error("Error updating user points:", error);
