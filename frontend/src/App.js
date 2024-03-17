@@ -113,13 +113,12 @@ function App() {
   useEffect(() => {
     const updateUserPoints = async () => {
       try {
-        const updatedPoints = points + 1;
         await fetch(`${baseURL}api/user/points`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ username: userName, points: updatedPoints }),
+          body: JSON.stringify({ username: userName}),
         });
       } catch (error) {
         console.error("Error updating user points:", error);
