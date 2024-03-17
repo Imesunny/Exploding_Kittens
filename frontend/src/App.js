@@ -6,8 +6,6 @@ import Toast from "./components/Toast";
 import NameForm from "./components/NameForm";
 import LeaderBoard from "./components/LeaderBoard";
 
-const baseURL = `https://emittr-backend-mypi.onrender.com/`;
-
 function App() {
   const [points, setPoints] = useState(0);
   const [updatedPoints, setUpdatedPoints] = useState(0);
@@ -18,14 +16,12 @@ function App() {
   const [cards, setCards] = useState([]);
   const [flippedArray, setFlippedArray] = useState([]);
   const [allCardsDrawn, setAllCardsDrawn] = useState(false);
-  const [showLeaderboard, setShowLeaderboard] = useState(false);
- 
 
   useEffect(() => {
     const fetchUserPoints = async () => {
       try {
         const response = await fetch(
-          `${baseURL}api/user/points?username=${userName}`
+          `http://localhost:8080/api/user/points?username=${userName}`
         );
         console.log("Fetching user points for:", userName);
 
@@ -115,12 +111,14 @@ function App() {
   useEffect(() => {
     const updateUserPoints = async () => {
       try {
-        await fetch(`${baseURL}api/user/points`, {
+        // Increment points by 1 when the user wins
+        const updatedPoints = points + 1;
+        await fetch(`http://localhost:8080/api/user/points`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ username: userName, points}),
+          body: JSON.stringify({ username: userName, points: updatedPoints }), // Pass updated points value
         });
       } catch (error) {
         console.error("Error updating user points:", error);
@@ -135,42 +133,25 @@ function App() {
   useEffect(() => {
     const updateUserPoints = async () => {
       try {
-        await fetch(`https://emittr-backend-mypi.onrender.com/api/user/points`, {
+        await fetch(`http://localhost:8080/api/user/points`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify({ username: userName , points: points }),
+          body: JSON.stringify({ username: userName, points: 1 }), // Increment points by 1
         });
-  
-        const response = await fetch(
-          `https://emittr-backend-mypi.onrender.com/api/user/points?username=${userName}`
-        );
-        const data = await response.json();
-        setUpdatedPoints(data);
       } catch (error) {
         console.error("Error updating user points:", error);
       }
     };
-  
+
     if (allCardsDrawn) {
       updateUserPoints();
     }
-  }, [allCardsDrawn, userName, points]);
-  
-
-  const toggleLeaderboard = () => {
-    setShowLeaderboard(!showLeaderboard);
-  };
-  
+  }, [allCardsDrawn, userName]);
 
   return (
     <div className="App">
-      <div className="button-container">
-        <button onClick={toggleLeaderboard} className="show-leaderboard-button">
-          Show Leaderboard
-        </button>
-      </div>
       {gameStarted ? (
         <>
           <Navbar points={updatedPoints || points} userName={userName} />
@@ -192,8 +173,7 @@ function App() {
           <NameForm onNameSubmit={handleNameSubmit} />
         </>
       )}
-      {allCardsDrawn && <LeaderBoard points={points} userName={userName}/> }
-      {showLeaderboard ? <LeaderBoard points={points} userName={userName}/> : null}
+      {allCardsDrawn && <LeaderBoard points={points} userName={userName} />}
     </div>
   );
 }

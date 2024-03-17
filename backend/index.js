@@ -1,8 +1,8 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
+const {Connection} = require('./config/db')
 
-const {connection} = require('./config/db')
 const { UserModel } = require('./modules/User.model');
 const app = express();
 app.use(cors());
@@ -44,7 +44,12 @@ app.get('/api/user/points', async (req, res) => {
       if (!user) {
         user = new UserModel({ username, points });
       } else {
-        user.points += parseInt(points);
+        const parsedPoints = parseInt(points);
+        if (!isNaN(parsedPoints)) {
+          user.points += parsedPoints;
+        } else {
+          return res.status(400).json({ message: "Invalid points value" });
+        }
       }
       await user.save();
       res.json(user);
@@ -52,6 +57,8 @@ app.get('/api/user/points', async (req, res) => {
       res.status(500).json({ message: err.message });
     }
   });
+  
+  
 
   app.get('/api/leaderboard', async (req, res) => {
     try {
@@ -64,7 +71,7 @@ app.get('/api/user/points', async (req, res) => {
 
 app.listen(8080, async () => {
     try {
-      await connection;
+      await Connection;
       console.log("connection established to DB");
     } catch (error) {
       console.log("Error connecting to DB", error);
