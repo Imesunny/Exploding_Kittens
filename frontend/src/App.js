@@ -140,6 +140,9 @@ function App() {
           },
           body: JSON.stringify({ username: userName, points: 1 }), 
         });
+        const response = await fetch(`https://backend-emittr2-2.onrender.com/api/user/points?username=${userName}`);
+        const data = await response.json();
+        setUpdatedPoints(data);
       } catch (error) {
         console.error("Error updating user points:", error);
       }
