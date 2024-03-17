@@ -40,7 +40,6 @@ Welcome to the Exploding Kittens card game! This is an online single-player card
 |-----------------|----------------|----------|
 | CSS             | Node.js        | MongoDB  |
 | ReactJS         | Express        |          |
-| Redux           |                |          |
 
 ## Contributions and License
 This project is open for contributions. Feel free to fork the repository, make changes, and submit a pull request. There is no license specified for this project. Enjoy playing and happy coding!
